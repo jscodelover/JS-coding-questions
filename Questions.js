@@ -71,4 +71,28 @@ const logger = fn => {
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 
+// what is the output of the following code and why?
+
+for(var i=0; i<5; i++){
+  setTimeout(print(i),(i+1)*3000);
+
+  function print(index){
+    debugger;
+    console.log(index)
+  }
+}
+
+/*
+    0
+    1
+    2
+    3
+    4
+    
+    Instead of passing the function definition inside the setTimeout method we are calling the function; so the print() function is called immediately 
+    without waiting for the setTimeout to get completed
+*/
+
+
+
 
