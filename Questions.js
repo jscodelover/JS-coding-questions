@@ -96,3 +96,34 @@ for(var i=0; i<5; i++){
 
 
 
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+
+// what is the output of the following code and why?
+
+const obj = {a: 1};
+
+const outerFunc = () => {
+  return () => {
+    obj.a = obj.a + 1;
+    console.log(obj.a)
+  }
+}
+
+const res = outerFunc();
+
+res(); 
+res(); 
+res(); 
+res(); 
+obj.a = 2;
+
+res();
+
+//   final res() -> 3
+
+/*
+    The answer is yes. Functions created in the global scope create a closure. But since these functions were created in the global scope, 
+    they have access to all the variables in the global scope. And the closure concept is not really relevant.
+*/
